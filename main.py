@@ -20,12 +20,14 @@ st.title('お産予測アプリ')
 # 牛の名前をリストで取得する
 cow_name = list(data['名前'].unique())
 
-select_name = st.selectbox('牛の名前を選択してください。',cow_name)
+# select_name = st.selectbox('牛の名前を選択してください。',cow_name)
 
 # 種付日を検索する
-tane_date = data.loc[data['名前']==select_name,'種付日1']
-tane_date = tane_date.values[0].split('/')
-tane_date = dt.datetime(int(tane_date[0]),int(tane_date[1]), int(tane_date[2])) 
+# tane_date = data.loc[data['名前']==select_name,'種付日1']
+# tane_date = tane_date.values[0].split('/')
+# tane_date = dt.datetime(int(tane_date[0]),int(tane_date[1]), int(tane_date[2])) 
+
+tane_date = st.date_input('種付日を選択してください。')
 st.write('種付日')
 st.write(tane_date)
 st.write('お産予定日')
